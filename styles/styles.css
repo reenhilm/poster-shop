@@ -1,0 +1,226 @@
+/* Deklarera CSS-variabler i :root */
+:root {
+    --blackish-color: #101212;
+    --trueblack-color: #000000;
+    --secondary-color: #3de07e;
+    --third-color: #333333;
+    
+    --almost-white-color: #F8F8F8;
+    /*
+    --fifth-color: #F2F2F2;
+    --sixth-color: blue;
+    --seventh-color: #587291;
+    --eighth-color: #5B2E48;
+    --ninth-color: #DCDCDC; */
+    --font-family-fira: 'Fira Sans', sans-serif;
+    --font-family-roboto: 'Roboto', sans-serif;
+
+    /* 12px 14.4px line-height */
+    --font-size-small: calc(12rem / 16);
+
+    /* 16px 24px line-height and 22.4px line-height*/
+    --font-size-base: calc(16rem / 16);
+
+    /* 34px 40.8px line-height */
+    --font-size-xl: calc(34rem / 16);
+
+    /* 40px 48px line-height */
+    --font-size-2xl: calc(40rem / 16);
+
+    /* designed to fit an example estimated to have had viewport height of 663 */
+    /* if viewport example is 1440 and user is assumed to use a monitor with widescreen 16:9 and bookmarks-bar and adress-bar showing 80–120px, windows taskbar 40–50px. I calculated height ratio for viewport to be approx 663px, so I will use that when calculating the vh */
+
+    /* WHY? to keep the aspect ratio of paddings and spacings when using a smaller or bigger viewport, respecting the designer */
+    --viewportwidth: 1440;
+    --viewportheight: 663;
+}
+
+header {
+    /* höjd ta bort sen? */
+    height: min(calc(608vh/var(--viewportheight)*100), calc(608rem/16));
+    background-color: var(--secondary-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &> p {
+            align-self: center;
+            outline: 2px solid blue;
+    }
+
+    &> nav {
+        outline: 2px solid green;
+    }
+}
+
+main {
+    /* höjd ta bort sen? */
+    /* height: min(calc(2912vh/var(--viewportheight)*100), calc(2912rem/16)); */
+    color:var(--almost-white-color);
+
+    /* should be 222 according to spec ... flow? */
+    padding-inline: min(calc(213vw / var(--viewportwidth)*100), calc(213rem / 16));
+    background-color: var(--blackish-color);
+    display:flex;
+    align-content: space-between;
+    flex-flow: wrap;
+
+    /* should be 31 according to spec */
+    gap:min(calc(30vw / var(--viewportwidth)*100), calc(30rem / 16));
+
+    .card__content h2, p {
+        width: 60px;        
+    }
+
+    .card__image {
+        width: 312px;
+        height: 312px;
+    }
+
+    .big {
+        order:1;
+        .card__image {
+            width: 486px;
+            height: 484px;
+        }
+    }
+}
+
+.ft-regular {
+    font-family: var(--font-family-fira);
+    color: var(--blackish-color);
+    line-height: 1.4;
+}
+
+.ft-2xl {
+    font-family: var(--font-family-fira);
+    font-size: var(--font-size-2xl);
+}
+
+.ft-xl {
+    font-family: var(--font-family-fira);
+    font-size: var(--font-size-xl);
+}
+
+.ft-small {
+    font-family: var(--font-family-fira);
+    font-size: var(--font-size-small);
+}
+
+.ft-higher {
+    line-height: 1.5;
+}
+
+.ft-white {
+    color: var(--almost-white-color);
+}
+
+footer {
+    /* höjd ta bort sen? */
+    height: min(calc(320vh/var(--viewportheight)*100), calc(320rem/16));
+
+    /* should be 222 according to spec ... flow? */
+    padding-inline: min(calc(213vw / var(--viewportwidth)*100), calc(213rem / 16));
+
+    background-color: var(--third-color);
+    display: flex;
+    justify-content: space-between;
+
+    &>nav>ul {
+        list-style-type: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+}
+
+html {
+    font-size: 100%;
+    line-height: 1.172;
+    font-family: Wingdings;
+    color: var(--primary-color);
+}
+
+body {
+    font-size: var(--font-size-default);
+    font-family: var(--font-family-fira);
+    background-color: var(--fourth-color);
+}
+
+.padding-16 {
+    padding-inline: min(calc(16vw / var(--viewportwidth)*100), calc(16rem / 16));;
+}
+
+/* header>nav {
+    margin-inline: min(2.1365vw, calc(31rem / 16));
+    border: 1px solid var(--fifth-color);
+    box-shadow: calc(1rem / 16) calc(1rem / 16) 21px var(--ninth-color);
+    justify-content: center;
+    gap: min(7.4431vw, calc(108rem/16));
+} */
+
+/* footer>nav {
+    font-size: var(--font-size-xl);
+    justify-content: flex-end;
+
+    gap: min(1.5161vw, calc(22rem/16));
+    margin-right: min(6.6850vw, calc(97rem/16));
+
+    line-height: calc(30rem/16);
+    margin-block: min(calc(55.628vh/var(--viewportheight)*100), calc(55.628rem/16));
+} */
+
+/* header {
+    padding-top: min(calc(70vh/var(--viewportheight)*100), calc(70rem/16));
+    height: calc(930rem/16);
+    background-image: url("/images/headerbackground2000x1282.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: top;
+    background-position: center;
+} */
+
+/* a {
+    padding-block: min(calc(14.372vh/var(--viewportheight)*100), calc(14.372rem/16));
+    color: var(--blackish-color);
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+a:visited {
+    color: var(--blackish-color);
+}
+
+section {
+    background-color: var(--seventh-color);
+    text-align: center;
+} */
+
+/* section h1 {
+    color: var(--fourth-color);
+    font-size: var(--font-size-2xl);
+    padding-top: min(calc(319vh/var(--viewportheight)*100), calc(319rem/16));
+    padding-bottom: min(calc(31vh/var(--viewportheight)*100), calc(31rem/16));
+} */
+
+/* button {
+     padding-top: min(calc(12vh/var(--viewportheight)*100), calc(12rem/16));
+    padding-bottom: min(calc(11vh/var(--viewportheight)*100), calc(11rem/16));
+    padding-left: min(1.8608vw, calc(27rem / 16));
+    padding-right: min(2.55vw, calc(37rem / 16));
+    color: var(--fourth-color);
+    font-size: var(--font-size-xl);
+    background-color: var(--eighth-color);
+    margin-bottom: min(calc(327vh/var(--viewportheight)*100), calc(327rem/16));
+    border-radius: calc(10rem / 16);
+    box-shadow: 0 calc(4rem / 16) 4px var(--trueblack-color);
+} */

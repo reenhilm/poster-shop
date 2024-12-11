@@ -37,7 +37,7 @@
 
 header {
     /* höjd ta bort sen? */
-    height: min(calc(608vh/var(--viewportheight)*100), calc(608rem/16));
+    min-height: min(calc(608vh/var(--viewportheight)*100), calc(608rem/16));
     background-color: var(--secondary-color);
     display: flex;
     flex-direction: column;
@@ -46,6 +46,10 @@ header {
     &> p {
             align-self: center;
             outline: 2px solid blue;
+    }
+
+    &>figure {
+        align-self: center;
     }
 
     &> nav {
@@ -57,9 +61,6 @@ main {
     /* höjd ta bort sen? */
     /* height: min(calc(2912vh/var(--viewportheight)*100), calc(2912rem/16)); */
     color:var(--almost-white-color);
-
-    /* should be 222 according to spec ... flow? */
-    padding-inline: min(calc(213vw / var(--viewportwidth)*100), calc(213rem / 16));
     background-color: var(--blackish-color);
     display:flex;
     align-content: space-between;
@@ -117,7 +118,7 @@ main {
 
 footer {
     /* höjd ta bort sen? */
-    height: min(calc(320vh/var(--viewportheight)*100), calc(320rem/16));
+    min-height: min(calc(320vh/var(--viewportheight)*100), calc(320rem/16));
 
     /* should be 222 according to spec ... flow? */
     padding-inline: min(calc(213vw / var(--viewportwidth)*100), calc(213rem / 16));
@@ -152,7 +153,17 @@ body {
 }
 
 .padding-16 {
-    padding-inline: min(calc(16vw / var(--viewportwidth)*100), calc(16rem / 16));;
+    padding-inline: min(calc(16vw / var(--viewportwidth)*100), calc(16rem / 16));
+}
+
+.padding-90-213 {
+    padding-top: min(calc(90vh/var(--viewportheight)*100), calc(90rem/16));
+    /* should be 222 according to spec ... flow? */
+    padding-inline: min(calc(213vw / var(--viewportwidth)*100), calc(213rem / 16));
+}
+
+.flow > * + * {
+    margin-bottom: min(calc(90vh/var(--viewportheight)*100), calc(90rem/16));
 }
 
 /* header>nav {

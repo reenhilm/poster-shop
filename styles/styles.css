@@ -1,3 +1,12 @@
+@font-face {
+    font-family: 'Roboto Black';
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/roboto/v32/KFOlCnqEu92Fr1MmYUtfChc4EsA.woff2) format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
 /* Deklarera CSS-variabler i :root */
 :root {
     --blackish-color: #101212;
@@ -14,6 +23,7 @@
     --ninth-color: #DCDCDC; */
     --font-family-fira: 'Fira Sans', sans-serif;
     --font-family-roboto: 'Roboto', sans-serif;
+    --font-family-roboto-black: 'Roboto Black', sans-serif;
 
     /* 12px 14.4px line-height */
     --font-size-small: calc(12rem / 16);
@@ -27,12 +37,17 @@
     /* 40px 48px line-height */
     --font-size-2xl: calc(40rem / 16);
 
+    /* 102px 119,53px line-height */
+    --font-size-3xl: calc(102rem / 16);
+
     /* designed to fit an example estimated to have had viewport height of 663 */
     /* if viewport example is 1440 and user is assumed to use a monitor with widescreen 16:9 and bookmarks-bar and adress-bar showing 80–120px, windows taskbar 40–50px. I calculated height ratio for viewport to be approx 663px, so I will use that when calculating the vh */
 
     /* WHY? to keep the aspect ratio of paddings and spacings when using a smaller or bigger viewport, respecting the designer */
     --viewportwidth: 1440;
     --viewportheight: 663;
+
+    --var-cardgap-percent: 3%;
 }
 
 header {
@@ -43,9 +58,9 @@ header {
     flex-direction: column;
     justify-content: space-between;
 
-    &> p {
-            align-self: center;
-            outline: 2px solid blue;
+    &> h1 {
+        align-self: center;
+        padding-block: min(calc(123vh / var(--viewportheight)*100), calc(123rem / 16));
     }
 
     &>figure {
@@ -53,44 +68,61 @@ header {
     }
 
     &> nav {
-        outline: 2px solid green;
+        padding-inline: min(calc(32vw / var(--viewportwidth)*100), calc(32rem / 16));
+        padding-block: min(calc(32vh / var(--viewportheight)*100), calc(32rem / 16));
     }
 }
 
 main {
-    /* höjd ta bort sen? */
-    /* height: min(calc(2912vh/var(--viewportheight)*100), calc(2912rem/16)); */
-    color:var(--almost-white-color);
     background-color: var(--blackish-color);
+}
+
+.smallcards {
+    color:var(--almost-white-color);
     display:flex;
     align-content: space-between;
     flex-flow: wrap;
+    gap: var(--var-cardgap-percent);
+}
 
-    /* should be 31 according to spec */
-    gap:min(calc(30vw / var(--viewportwidth)*100), calc(30rem / 16));
+.card {   
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 31%;    
+}
 
-    .card__content h2, p {
-        width: 60px;        
-    }
+.big {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 48%;
+}
 
-    .card__image {
-        width: 312px;
-        height: 312px;
-    }
-
-    .big {
-        order:1;
-        .card__image {
-            width: 486px;
-            height: 484px;
-        }
-    }
+.bigcards {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--var-cardgap-percent);
 }
 
 .ft-regular {
     font-family: var(--font-family-fira);
     color: var(--blackish-color);
     line-height: 1.4;
+}
+
+.ft-robot {
+    font-family: var(--font-family-roboto);
+    color: var(--blackish-color);
+    line-height: 1.1718;
+}
+
+.ft-robotblack {
+    font-family: var(--font-family-roboto-black);
+    font-weight: 700;
+    color: var(--blackish-color);
+}
+
+.ft-3xl {
+    font-size: var(--font-size-3xl);
 }
 
 .ft-2xl {
@@ -142,7 +174,7 @@ footer {
 html {
     font-size: 100%;
     line-height: 1.172;
-    font-family: Wingdings;
+    font-family: var(--font-family-fira);
     color: var(--primary-color);
 }
 
@@ -165,73 +197,3 @@ body {
 .flow > * + * {
     margin-bottom: min(calc(90vh/var(--viewportheight)*100), calc(90rem/16));
 }
-
-/* header>nav {
-    margin-inline: min(2.1365vw, calc(31rem / 16));
-    border: 1px solid var(--fifth-color);
-    box-shadow: calc(1rem / 16) calc(1rem / 16) 21px var(--ninth-color);
-    justify-content: center;
-    gap: min(7.4431vw, calc(108rem/16));
-} */
-
-/* footer>nav {
-    font-size: var(--font-size-xl);
-    justify-content: flex-end;
-
-    gap: min(1.5161vw, calc(22rem/16));
-    margin-right: min(6.6850vw, calc(97rem/16));
-
-    line-height: calc(30rem/16);
-    margin-block: min(calc(55.628vh/var(--viewportheight)*100), calc(55.628rem/16));
-} */
-
-/* header {
-    padding-top: min(calc(70vh/var(--viewportheight)*100), calc(70rem/16));
-    height: calc(930rem/16);
-    background-image: url("/images/headerbackground2000x1282.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position-y: top;
-    background-position: center;
-} */
-
-/* a {
-    padding-block: min(calc(14.372vh/var(--viewportheight)*100), calc(14.372rem/16));
-    color: var(--blackish-color);
-    text-decoration: none;
-    vertical-align: middle;
-}
-
-a:hover {
-    color: var(--secondary-color);
-    text-decoration: underline;
-}
-
-a:visited {
-    color: var(--blackish-color);
-}
-
-section {
-    background-color: var(--seventh-color);
-    text-align: center;
-} */
-
-/* section h1 {
-    color: var(--fourth-color);
-    font-size: var(--font-size-2xl);
-    padding-top: min(calc(319vh/var(--viewportheight)*100), calc(319rem/16));
-    padding-bottom: min(calc(31vh/var(--viewportheight)*100), calc(31rem/16));
-} */
-
-/* button {
-     padding-top: min(calc(12vh/var(--viewportheight)*100), calc(12rem/16));
-    padding-bottom: min(calc(11vh/var(--viewportheight)*100), calc(11rem/16));
-    padding-left: min(1.8608vw, calc(27rem / 16));
-    padding-right: min(2.55vw, calc(37rem / 16));
-    color: var(--fourth-color);
-    font-size: var(--font-size-xl);
-    background-color: var(--eighth-color);
-    margin-bottom: min(calc(327vh/var(--viewportheight)*100), calc(327rem/16));
-    border-radius: calc(10rem / 16);
-    box-shadow: 0 calc(4rem / 16) 4px var(--trueblack-color);
-} */

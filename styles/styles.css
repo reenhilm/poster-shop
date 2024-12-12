@@ -13,6 +13,8 @@
     --trueblack-color: #000000;
     --secondary-color: #3de07e;
     --third-color: #333333;
+    --fourth-color: #E83F57;;
+
     
     --almost-white-color: #F8F8F8;
     /*
@@ -48,6 +50,46 @@
     --viewportheight: 663;
 
     --var-cardgap-percent: 3%;
+}
+
+header> nav.open {
+    background-color: var(--fourth-color);
+}
+
+header> nav.open {
+    left: 0rem;
+    transition: 0.4s ease-in;
+}
+
+header > nav {
+    left: calc(-560rem/16);
+    min-height: 100%;
+    position: absolute;
+    background-color: var(--blackish-color);
+    color: white;
+    margin-top: calc(55rem/16);
+    z-index: 99;
+    width: calc(560rem/16);
+    transition: 0.4s ease-out;
+}
+
+header > nav a {
+    display: flex;
+    justify-content: space-around;
+    margin-left: calc(35rem/16);
+    gap: calc(32rem/16);
+    text-decoration: none;
+}
+
+a.toggle {
+    z-index: 100;
+    position: absolute;
+    padding: 1rem;
+    transition: transform 0.4s;
+}
+
+a.toggle:hover {
+    transform: scale(1.5);
 }
 
 header {
@@ -93,14 +135,60 @@ main {
 
 .big {
     flex-grow: 1;
+    background-color: var(--almost-white-color);
     flex-shrink: 1;
     flex-basis: 48%;
 }
 
+button {
+    border-radius: 4px;
+    background-color: var(--fourth-color);
+    padding:10px;
+    white-space: nowrap;
+    color:var(--almost-white-color);
+}
+
+.card {
+    display: flex;
+    justify-content:space-between;
+    font-weight: 300;
+    flex-direction: column;
+    margin-bottom:min(calc(80vh/var(--viewportheight)*100), calc(80rem/16));
+}
+
+.card>*+* {
+    margin-inline: 20px;
+    margin-bottom: min(calc(25vh/var(--viewportheight)*100), calc(25rem/16));
+}
+
+.socialmedialinks {
+    display: flex;
+    flex-direction: start;
+    gap:min(calc(15vw / var(--viewportwidth)*100), calc(15rem / 16));
+}
+
+.card button {
+    align-self: start;
+    margin-bottom: 14px;
+}
+
+/* .big h2 {
+    padding-top: 0.25em;
+} */
+
+/* .big-flow>*+* {
+    margin-inline: 20px;
+    margin-block: min(calc(15vh/var(--viewportheight)*100), calc(15rem/16));
+} */
+
 .bigcards {
     display: flex;
     justify-content: space-between;
-    gap: var(--var-cardgap-percent);
+    gap: var(--var-cardgap-percent);    
+}
+
+.nomarginbottom {
+    margin-bottom: 0 !important;
 }
 
 .ft-regular {
@@ -130,6 +218,12 @@ main {
     font-size: var(--font-size-2xl);
 }
 
+.ft-2xlbold {
+    font-family: var(--font-family-fira);
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+}
+
 .ft-xl {
     font-family: var(--font-family-fira);
     font-size: var(--font-size-xl);
@@ -154,6 +248,7 @@ footer {
 
     /* should be 222 according to spec ... flow? */
     padding-inline: min(calc(213vw / var(--viewportwidth)*100), calc(213rem / 16));
+    padding-block: min(calc(67vw / var(--viewportwidth)*100), calc(67rem / 16));
 
     background-color: var(--third-color);
     display: flex;

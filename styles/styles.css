@@ -17,12 +17,7 @@
 
     
     --almost-white-color: #F8F8F8;
-    /*
-    --fifth-color: #F2F2F2;
-    --sixth-color: blue;
-    --seventh-color: #587291;
-    --eighth-color: #5B2E48;
-    --ninth-color: #DCDCDC; */
+
     --font-family-fira: 'Fira Sans', sans-serif;
     --font-family-roboto: 'Roboto', sans-serif;
     --font-family-roboto-black: 'Roboto Black', sans-serif;
@@ -127,8 +122,6 @@ a.toggle:hover {
 }
 
 header {
-    /* höjd ta bort sen? */
-    min-height: min(calc(608vh/var(--viewportheight)*100), calc(608rem/16));
     background-color: var(--secondary-color);
     display: flex;
     flex-direction: column;
@@ -136,7 +129,8 @@ header {
 
     &> h1 {
         align-self: center;
-        padding-block: min(calc(123vh / var(--viewportheight)*100), calc(123rem / 16));
+        padding-top: min(calc(213vh / var(--viewportheight)*100), calc(213rem / 16));
+        padding-bottom: min(calc(123vh / var(--viewportheight)*100), calc(123rem / 16));
     }
 
     &>figure {

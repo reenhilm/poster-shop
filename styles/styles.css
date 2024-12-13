@@ -30,17 +30,23 @@
     /* 12px 14.4px line-height */
     --font-size-small: calc(12rem / 16);
 
-    /* 16px 24px line-height and 22.4px line-height*/
+    /* 16px 22.4px line-height*/
     --font-size-base: calc(16rem / 16);
 
+    /* 24px 28.13px line-height*/
+    --font-size-large: calc(24rem / 16);
+
+    /* 32px 37.5px line-height*/
+    --font-size-xl: calc(32rem / 16);
+
     /* 34px 40.8px line-height */
-    --font-size-xl: calc(34rem / 16);
+    --font-size-2xl: calc(34rem / 16);
 
     /* 40px 48px line-height */
-    --font-size-2xl: calc(40rem / 16);
+    --font-size-3xl: calc(40rem / 16);
 
     /* 102px 119,53px line-height */
-    --font-size-3xl: calc(102rem / 16);
+    --font-size-4xl: calc(102rem / 16);
 
     /* designed to fit an example estimated to have had viewport height of 663 */
     /* if viewport example is 1440 and user is assumed to use a monitor with widescreen 16:9 and bookmarks-bar and adress-bar showing 80–120px, windows taskbar 40–50px. I calculated height ratio for viewport to be approx 663px, so I will use that when calculating the vh */
@@ -209,24 +215,24 @@ button {
     color: var(--blackish-color);
 }
 
+.ft-4xl {
+    font-size: var(--font-size-4xl);
+}
+
 .ft-3xl {
+    font-family: var(--font-family-fira);
     font-size: var(--font-size-3xl);
+}
+
+.ft-3xlbold {
+    font-family: var(--font-family-fira);
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
 }
 
 .ft-2xl {
     font-family: var(--font-family-fira);
     font-size: var(--font-size-2xl);
-}
-
-.ft-2xlbold {
-    font-family: var(--font-family-fira);
-    font-size: var(--font-size-2xl);
-    font-weight: 700;
-}
-
-.ft-xl {
-    font-family: var(--font-family-fira);
-    font-size: var(--font-size-xl);
 }
 
 .ft-small {

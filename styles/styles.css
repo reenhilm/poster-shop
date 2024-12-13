@@ -58,6 +58,31 @@
     --var-cardgap-percent: 3%;
 }
 
+.itemslist>thead {
+    font-size:var(--font-size-large);
+    text-align: left;
+    background-color: hsla(0, 83%, 57%, 0.2)
+}
+
+.itemslist>tbody {
+    font-size: var(--font-size-xl);
+}
+
+.itemslist {
+    width: 100%;   
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 15px 15px 15px 0px;
+}
+
+.totalrow td {
+    border-top: 2px solid white;
+    font-weight: 700;
+}
+
 header> nav.open {
     background-color: var(--fourth-color);
 }
@@ -149,7 +174,7 @@ main {
 button {
     border-radius: 4px;
     background-color: var(--fourth-color);
-    padding:10px;
+    padding:0.5em;
     white-space: nowrap;
     color:var(--almost-white-color);
 }
@@ -235,6 +260,10 @@ button {
     font-size: var(--font-size-2xl);
 }
 
+.ft-xl {
+    font-size: var(--font-size-xl);
+}
+
 .ft-small {
     font-family: var(--font-family-fira);
     font-size: var(--font-size-small);
@@ -282,7 +311,11 @@ html {
 body {
     font-size: var(--font-size-default);
     font-family: var(--font-family-fira);
-    background-color: var(--fourth-color);
+    background-color: var(--blackish-color);
+}
+
+.alignright {
+    text-align: right;
 }
 
 .padding-16 {

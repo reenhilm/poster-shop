@@ -7,7 +7,6 @@
     unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
-/* Deklarera CSS-variabler i :root */
 :root {
     --blackish-color: #101212;
     --trueblack-color: #000000;
@@ -56,24 +55,23 @@
     --var-cardgap-percent: 3%;
 }
 
-.itemslist>thead {
-    font-size:var(--font-size-large);
-    text-align: left;
-    background-color: hsla(0, 83%, 57%, 0.2)
-}
-
-.itemslist>tbody {
-    font-size: var(--font-size-xl);
-}
-
 .itemslist {
     width: 100%;   
     border-collapse: collapse;
-}
 
-th,
-td {
-    padding: 15px 15px 15px 0px;
+    th, td {
+            padding: 15px 15px 15px 0px;
+    }
+
+    &>tbody {
+        font-size: var(--font-size-xl);
+    }
+
+    &>thead {
+        font-size: var(--font-size-large);
+        text-align: left;
+        background-color: hsla(0, 83%, 57%, 0.2)
+    }
 }
 
 .totalrow td {
@@ -83,9 +81,6 @@ td {
 
 header> nav.open {
     background-color: var(--fourth-color);
-}
-
-header> nav.open {
     left: 0rem;
     transition: 0.4s ease-in;
 }
@@ -99,15 +94,7 @@ header > nav {
     margin-top: calc(55rem/16);
     z-index: 99;
     width: calc(560rem/16);
-    transition: 0.4s ease-out;
-}
-
-header > nav a {
-    display: flex;
-    justify-content: space-around;
-    margin-left: calc(35rem/16);
-    gap: calc(32rem/16);
-    text-decoration: none;
+    transition: 0.4s ease-out;    
 }
 
 a.toggle {
@@ -115,10 +102,10 @@ a.toggle {
     position: absolute;
     padding: 1rem;
     transition: transform 0.4s;
-}
 
-a.toggle:hover {
-    transform: scale(1.5);
+    &:hover {
+            transform: scale(1.5);
+    }
 }
 
 header {
@@ -274,10 +261,6 @@ button {
 }
 
 footer {
-    /* höjd ta bort sen? */
-    min-height: min(calc(320vh/var(--viewportheight)*100), calc(320rem/16));
-
-    /* should be 222 according to spec ... flow? */
     padding-inline: min(calc(213vw / var(--viewportwidth)*100), calc(213rem / 16));
     padding-block: min(calc(60vh/var(--viewportheight)*100), calc(60rem/16));
 
@@ -324,7 +307,6 @@ body {
 
 .padding-90-213 {
     padding-top: min(calc(90vh/var(--viewportheight)*100), calc(90rem/16));
-    /* should be 222 according to spec ... flow? */
     padding-inline: min(calc(213vw / var(--viewportwidth)*100), calc(213rem / 16));
 }
 

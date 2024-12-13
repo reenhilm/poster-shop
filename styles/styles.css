@@ -45,8 +45,11 @@
     /* 40px 48px line-height */
     --font-size-3xl: calc(40rem / 16);
 
+    /* 48px 56.25px line-height */
+    --font-size-4xl: calc(48rem / 16);
+
     /* 102px 119,53px line-height */
-    --font-size-4xl: calc(102rem / 16);
+    --font-size-5xl: calc(102rem / 16);
 
     /* designed to fit an example estimated to have had viewport height of 663 */
     /* if viewport example is 1440 and user is assumed to use a monitor with widescreen 16:9 and bookmarks-bar and adress-bar showing 80–120px, windows taskbar 40–50px. I calculated height ratio for viewport to be approx 663px, so I will use that when calculating the vh */
@@ -148,6 +151,10 @@ header {
 
 main {
     background-color: var(--blackish-color);
+
+    &>h2 {
+        margin-bottom: min(calc(42vh / var(--viewportheight)*100), calc(42rem / 16));
+    }
 }
 
 .smallcards {
@@ -203,15 +210,6 @@ button {
     margin-bottom: 14px;
 }
 
-/* .big h2 {
-    padding-top: 0.25em;
-} */
-
-/* .big-flow>*+* {
-    margin-inline: 20px;
-    margin-block: min(calc(15vh/var(--viewportheight)*100), calc(15rem/16));
-} */
-
 .bigcards {
     display: flex;
     justify-content: space-between;
@@ -238,6 +236,10 @@ button {
     font-family: var(--font-family-roboto-black);
     font-weight: 700;
     color: var(--blackish-color);
+}
+
+.ft-5xl {
+    font-size: var(--font-size-5xl);
 }
 
 .ft-4xl {
@@ -283,7 +285,7 @@ footer {
 
     /* should be 222 according to spec ... flow? */
     padding-inline: min(calc(213vw / var(--viewportwidth)*100), calc(213rem / 16));
-    padding-block: min(calc(67vw / var(--viewportwidth)*100), calc(67rem / 16));
+    padding-block: min(calc(60vh/var(--viewportheight)*100), calc(60rem/16));
 
     background-color: var(--third-color);
     display: flex;
@@ -298,6 +300,10 @@ footer {
     }
     a:hover {
         text-decoration: underline;
+    }
+
+    & h2 {
+        padding-bottom: min(calc(10vh/var(--viewportheight)*100), calc(10rem/16));
     }
 }
 

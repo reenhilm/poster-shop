@@ -149,7 +149,7 @@ main {
 .card {   
     flex-grow: 1;
     flex-shrink: 1;
-    flex-basis: 31%;    
+    flex-basis: 31%;
 }
 
 .big {
@@ -168,16 +168,13 @@ button {
 }
 
 .card {
-    display: flex;
-    justify-content:space-between;
     font-weight: 300;
-    flex-direction: column;
     margin-bottom:min(calc(80vh/var(--viewportheight)*100), calc(80rem/16));
 }
 
 .card>*+* {
     margin-inline: 20px;
-    margin-bottom: min(calc(25vh/var(--viewportheight)*100), calc(25rem/16));
+    margin-block: min(calc(22vh/var(--viewportheight)*100), calc(22rem/16));
 }
 
 .socialmedialinks {
@@ -299,10 +296,6 @@ body {
 
 .alignright {
     text-align: right;
-}
-
-.padding-16 {
-    padding-inline: min(calc(16vw / var(--viewportwidth)*100), calc(16rem / 16));
 }
 
 .padding-90-213 {

@@ -10,9 +10,7 @@
     --trueblack-color: #000000;
     --secondary-color: #3de07e;
     --third-color: #333333;
-    --fourth-color: #E83F57;
-
-    
+    --fourth-color: #E83F57;  
     --almost-white-color: #F8F8F8;
 
     --font-family-fira: 'Fira Sans', sans-serif;
@@ -49,8 +47,98 @@
     /* WHY? to keep the aspect ratio of paddings and spacings when using a smaller or bigger viewport, respecting the designer */
     --viewportwidth: 1440;
     --viewportheight: 663;
+    
+    --heightBeforeH1InHeader: min(calc(213vh / var(--viewportheight)*100), calc(213rem / 16));
+    --heightAfterH1InHeader: min(calc(123vh / var(--viewportheight)*100), calc(123rem / 16));
+
+    --HeightAfterH2InMain: min(calc(42vh / var(--viewportheight)*100), calc(42rem / 16));
+
+    --HeightGapBetweenCardRows: min(calc(80vh/var(--viewportheight)*100), calc(80rem/16));
+
+    --HeightFlowWithinCards: min(calc(22vh/var(--viewportheight)*100), calc(22rem/16));
+
+    --socialMediaImagesGap: min(calc(15vw / var(--viewportwidth)*100), calc(15rem / 16));
+
+    --navWidthGutter: min(calc(32vw / var(--viewportwidth)*100), calc(32rem / 16));
+    --navHeightFlow: min(calc(32vh / var(--viewportheight)*100), calc(32rem / 16));
+
+    --footerGutterWidth: min(calc(213vw / var(--viewportwidth)*100), calc(213rem / 16));
+    --footerHeightFlow: min(calc(60vh/var(--viewportheight)*100), calc(60rem/16));
+
+    --heightAfterFooterH2: min(calc(10vh/var(--viewportheight)*100), calc(10rem/16));
 
     --var-cardgap-percent: 3%;
+}
+
+html {
+    font-size: 100%;
+    line-height: 1.172;
+    font-family: var(--font-family-fira);
+    color: var(--primary-color);
+}
+
+body {
+    font-size: var(--font-size-default);
+    font-family: var(--font-family-fira);
+    background-color: var(--blackish-color);
+}
+
+header {
+    background-color: var(--secondary-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &> h1 {
+        align-self: center;
+        padding-top: var(--heightBeforeH1InHeader);
+        padding-bottom: var(--heightAfterH1InHeader);
+    }
+
+    &>figure {
+        align-self: center;
+    }
+
+    &> nav {
+        padding-inline: var(--navWidthGutter);
+        padding-block: var(--navHeightFlow);
+    }
+}
+
+header> nav.open {
+    background-color: var(--fourth-color);
+    left: 0rem;
+    transition: 0.4s ease-in;
+}
+
+header > nav {
+    left: calc(-560rem/16);
+    min-height: 100%;
+    position: absolute;
+    background-color: var(--blackish-color);
+    margin-top: calc(55rem/16);
+    z-index: 99;
+    width: calc(560rem/16);
+    transition: 0.4s ease-out;    
+}
+
+a.toggle {
+    z-index: 100;
+    position: absolute;
+    padding: 1rem;
+    transition: transform 0.4s;
+
+    &:hover {
+            transform: scale(1.5);
+    }
+}
+
+main {
+    background-color: var(--blackish-color);
+
+    &>h2 {
+        margin-bottom: var(--HeightAfterH2InMain);
+    }
 }
 
 .itemslist {
@@ -75,65 +163,6 @@
 .totalrow td {
     border-top: 2px solid white;
     font-weight: 700;
-}
-
-header> nav.open {
-    background-color: var(--fourth-color);
-    left: 0rem;
-    transition: 0.4s ease-in;
-}
-
-header > nav {
-    left: calc(-560rem/16);
-    min-height: 100%;
-    position: absolute;
-    background-color: var(--blackish-color);
-    color: white;
-    margin-top: calc(55rem/16);
-    z-index: 99;
-    width: calc(560rem/16);
-    transition: 0.4s ease-out;    
-}
-
-a.toggle {
-    z-index: 100;
-    position: absolute;
-    padding: 1rem;
-    transition: transform 0.4s;
-
-    &:hover {
-            transform: scale(1.5);
-    }
-}
-
-header {
-    background-color: var(--secondary-color);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    &> h1 {
-        align-self: center;
-        padding-top: min(calc(213vh / var(--viewportheight)*100), calc(213rem / 16));
-        padding-bottom: min(calc(123vh / var(--viewportheight)*100), calc(123rem / 16));
-    }
-
-    &>figure {
-        align-self: center;
-    }
-
-    &> nav {
-        padding-inline: min(calc(32vw / var(--viewportwidth)*100), calc(32rem / 16));
-        padding-block: min(calc(32vh / var(--viewportheight)*100), calc(32rem / 16));
-    }
-}
-
-main {
-    background-color: var(--blackish-color);
-
-    &>h2 {
-        margin-bottom: min(calc(42vh / var(--viewportheight)*100), calc(42rem / 16));
-    }
 }
 
 .smallcards {
@@ -173,18 +202,18 @@ button {
 
 .card {
     font-weight: 300;
-    margin-bottom:min(calc(80vh/var(--viewportheight)*100), calc(80rem/16));
+    margin-bottom: var(--HeightGapBetweenCardRows);
 }
 
 .card>*+* {
     margin-inline: 20px;
-    margin-block: min(calc(22vh/var(--viewportheight)*100), calc(22rem/16));
+    margin-block: var(--HeightFlowWithinCards);
 }
 
 .socialmedialinks {
     display: flex;
     flex-direction: start;
-    gap:min(calc(15vw / var(--viewportwidth)*100), calc(15rem / 16));
+    gap: var(--socialMediaImagesGap);
 }
 
 .card button {
@@ -202,6 +231,7 @@ button {
     margin-bottom: 0 !important;
 }
 
+/*#region fontfamily_color_weight_lineheight */
 .ft-regular {
     font-family: var(--font-family-fira);
     color: var(--blackish-color);
@@ -260,10 +290,11 @@ button {
 .ft-white {
     color: var(--almost-white-color);
 }
+/*#endregion fontfamily_color_weight_weight_lineheight */
 
 footer {
-    padding-inline: min(calc(213vw / var(--viewportwidth)*100), calc(213rem / 16));
-    padding-block: min(calc(60vh/var(--viewportheight)*100), calc(60rem/16));
+    padding-inline: var(--footerGutterWidth);
+    padding-block: var(--footerHeightFlow);
 
     background-color: var(--third-color);
     display: flex;
@@ -281,21 +312,8 @@ footer {
     }
 
     & h2 {
-        padding-bottom: min(calc(10vh/var(--viewportheight)*100), calc(10rem/16));
+        padding-bottom: var(--heightAfterFooterH2);
     }
-}
-
-html {
-    font-size: 100%;
-    line-height: 1.172;
-    font-family: var(--font-family-fira);
-    color: var(--primary-color);
-}
-
-body {
-    font-size: var(--font-size-default);
-    font-family: var(--font-family-fira);
-    background-color: var(--blackish-color);
 }
 
 .alignright {
